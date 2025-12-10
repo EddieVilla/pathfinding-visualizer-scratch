@@ -1,12 +1,15 @@
+import { PathfindingProvider } from "./context/PathfindingContext";
 
 
 function App() {
 
   return (
-  <h1 class="text-3xl font-bold underline h-screen w-screen bg-blue-500">
-    Hello world!
-  </h1>
-  )
+    <PathfindingProvider>
+      <h1 class="text-3xl font-bold underline h-screen w-screen bg-blue-500">
+        Hello world!
+      </h1>
+    </PathfindingProvider>
+  );
 }
 
-export default App
+export default App;
