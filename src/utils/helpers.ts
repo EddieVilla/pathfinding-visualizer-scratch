@@ -11,7 +11,7 @@ const createRow = (row: number, startTile: TileType, endTile: TileType) => {
             isWall: false,
             isPath: false,
             distance: Infinity,
-            isStart: row === startTile.row && col === endTile.col,
+            isStart: row === startTile.row && col === startTile.col,
             isTraversed: false,
             parent: null
         })
@@ -27,4 +27,9 @@ export const createGrid = (startTile: TileType, endTile: TileType) => {
     }
 
     return grid;
+}
+
+
+export const checkIfStartOrEnd = () => {
+    return (row === 1 && col === 1) || (row === MAX_ROWS - 2 && col === MAX_COLS - 2);
 }
