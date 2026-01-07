@@ -15,6 +15,8 @@ module.exports = {
     es2021: true,
   },
   rules: {
+    "indent": ["error", 2],
+    //"indent": ["error", 2, { "FunctionDeclaration": {"body": 1, "parameters": 2} }],
     'react/react-in-jsx-scope': 'off',
     "semi": ["error", "always"]
   },
