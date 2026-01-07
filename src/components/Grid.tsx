@@ -1,9 +1,21 @@
 import { twMerge } from "tailwind-merge";
 import { usePathfinding } from "../hooks/usePathfinding";
 import { MAX_ROWS } from "../utils/constants";
+import { Tile } from "./Tile";
+import { useState, type MutableRefObject } from "react";
+import { checkIfStartOrEnd } from "../utils/helpers";
 
-export function Grid() {
+export function Grid({ isVisualizationRunningRef }: { isVisualizationRunningRef: MutableRefObject<boolean>; }) {
   const {grid} = usePathfinding();
+  const [isMouseDown, setIsMouseDown] = useState(false);
+
+  const handleMouseDown = (row: number, col: number) => {
+    if (isVisualizationRunningRef.current || checkIfStartOrEnd(row, col)) {
+      return;
+    }
+
+    setIsMouseDown(true);
+  }
 
   return (
     <div
@@ -22,9 +34,21 @@ export function Grid() {
     >
       {grid.map((row, rowIndex) => (
         <div key={rowIndex} className="flex">
-          {row.map((tile, tileIndex) => (
-            <div className="bg-white h-2 w-2 border" />
-          ))}
+          {row.map((tile, tileIndex) => {
+            const {isEnd, isStart, isPath, isTraversed, isWall} = tile;
+            return (
+              <Tile 
+                key={tileIndex}
+                row={tile.row}
+                col={tile.col}
+                isEnd={isEnd}
+                isStart={isStart}
+                isPath={isPath}
+                isTraversed={isTraversed}
+                isWall={isWall}
+              />
+            )
+})}
         </div>
       ))}
     </div>
