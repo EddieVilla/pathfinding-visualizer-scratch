@@ -16,7 +16,6 @@ const createRow = (row: number, startTile: TileType, endTile: TileType) => {
       parent: null
     });
   }
-
   return currentRow;
 };
 
