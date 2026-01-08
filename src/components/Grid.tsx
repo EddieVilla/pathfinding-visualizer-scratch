@@ -21,7 +21,7 @@ export function Grid({ isVisualizationRunningRef }: { isVisualizationRunningRef:
     <div
       className={twMerge(
         // Base classes
-        "flex items-center flex-col justify-center border-sky-300",
+        "flex items-center flex-col justify-center border-sky-300 mt-10",
         // Control Grid Height
         `lg:min-h-[${MAX_ROWS * 17}px]  md:min-h-[${
           MAX_ROWS * 15
