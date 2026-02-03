@@ -23,4 +23,8 @@ dist-ssr
 *.sln
 *.sw?
 
-package-lock.json
+# NOTE: the following not working. maybe because it is already in the history?
+# just use this note as a reminder to mentally ignore it.
+#package-lock.json
+
+*.un~
